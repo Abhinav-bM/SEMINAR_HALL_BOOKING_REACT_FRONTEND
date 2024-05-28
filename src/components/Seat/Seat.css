@@ -1,0 +1,14 @@
+.seat {
+  width: 500px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.seat.booked {
+  background-color: red;
+}
