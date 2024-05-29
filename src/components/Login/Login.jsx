@@ -10,7 +10,6 @@ function Login() {
 
   useEffect(() => {
     const token = Cookies.get("jwt");
-    console.log("cookes accessing from frontend : ", token);
     if (token) {
       navigate("/");
     }

@@ -6,10 +6,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Signup from "./components/Signup/Signup.jsx";
 import Login from "./components/Login/Login.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <Provider store={store}>
+      <ToastContainer />
       <Router>
         <Routes>
           <Route path="/" exact Component={SeminarHall} />

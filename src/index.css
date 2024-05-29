@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -12,7 +12,6 @@ body{
 }
 .App {
   text-align: center;
-  
 }
 
 .modal {
@@ -28,7 +27,7 @@ body{
 }
 
 .modal-content {
-  background: rgb(117, 117, 233);
+  background: white;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
@@ -51,10 +50,9 @@ body{
 
 .seat {
   height: 50px;
-  margin-left: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
@@ -67,7 +65,8 @@ body{
 }
 
 .seat.available {
+  text-align: center;
   width: 50px;
-  background: rgb(17, 126, 189);
+  background: green;
   color: white;
 }
