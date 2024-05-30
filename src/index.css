@@ -42,7 +42,6 @@ body {
 
 .seats {
   display: grid;
-  width: 500px;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   margin: 20px;
@@ -59,14 +58,14 @@ body {
 }
 
 .seat.booked {
-  width: 50px;
+  width: 100%;
   background: rgba(238, 23, 23, 0.936);
   color: white;
 }
 
 .seat.available {
   text-align: center;
-  width: 50px;
+  width: 100%;
   background: green;
   color: white;
 }

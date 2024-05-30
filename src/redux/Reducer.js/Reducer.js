@@ -1,12 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { loadState} from "../localStorage/LocalStorage";
-import{toast} from 'react-toastify'
+import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
+const loadState = () => {
+  try {
+    const initilState = localStorage.getItem("seats");
+    if (initilState === null) {
+      return undefined;
+    }
 
-const initialState = [loadState()] || [{}];
+    return JSON.parse(initilState);
+  } catch (err) {
+    return undefined;
+  }
+};
+
+const initialState = loadState() || {};
 
 const seatsSlice = createSlice({
-  name: "seats",
+  name: 'seats',
   initialState,
   reducers: {
     bookSeat: (state, action) => {
@@ -15,15 +26,19 @@ const seatsSlice = createSlice({
         state[date] = {};
       }
       state[date][seatNumber] = { name, phone };
-      toast.success("Seat booked successfully")
+      toast.success("Seat booked successfully");
     },
-    setSeats: (state, action) => {
-      return action.payload;
+    saveState: (state, action) => {
+      try {
+        const newState = JSON.stringify(state);
+        localStorage.setItem("seats", newState);
+      } catch (err) {
+        console.error('Failed to save state:', err);
+      }
     },
-    
   },
 });
 
-export const { bookSeat, setSeats } = seatsSlice.actions;
+export const { bookSeat, setSeats, saveState } = seatsSlice.actions;
 
 export default seatsSlice.reducer;

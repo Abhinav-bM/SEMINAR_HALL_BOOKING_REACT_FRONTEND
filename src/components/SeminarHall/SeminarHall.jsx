@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSeats, bookSeatAction } from "../../redux/Actions/Actions";
+import { bookSeat, saveState } from "../../redux/Actions/Actions";
 import Modal from "../Modal/Modal";
 import Seat from "../Seat/Seat";
 import { format } from "date-fns";
 import DatePicker from "../DatePicker/DatePicker";
-import { saveState } from "../../redux/localStorage/LocalStorage";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
@@ -22,15 +21,15 @@ const SeminarHall = () => {
 
   useEffect(() => {
     const token = Cookies.get("jwt");
-   token ? setAuthenticated(true) : navigate("/login")
+    if (token) {
+      setAuthenticated(true);
+    } else {
+      navigate("/login");
+    }
   }, [navigate]);
 
   useEffect(() => {
-    dispatch(fetchSeats());
-  }, [dispatch]);
-
-  useEffect(() => {
-    saveState(seats);
+    dispatch(saveState(seats));
   }, [seats]);
 
   const handleDateChange = (date) => {
@@ -52,7 +51,7 @@ const SeminarHall = () => {
 
   const handleModalSubmit = ({ name, phone }) => {
     dispatch(
-      bookSeatAction({
+      bookSeat({
         date: selectedDate,
         seatNumber: selectedSeat,
         name,
@@ -67,10 +66,8 @@ const SeminarHall = () => {
     navigate("/login");
   };
 
-  return (
-
-    isAuthenticated ?(
-      <div className="seminar-main-container">
+  return isAuthenticated ? (
+    <div className="seminar-main-container">
       <h1 className="text-4xl font-bold my-8">Seminar Hall Booking</h1>
 
       <DatePicker onDateChange={handleDateChange} />
@@ -108,10 +105,8 @@ const SeminarHall = () => {
         Logout
       </button>
     </div>
-    ) : (
-      <div>Loading ....</div>
-    )
-    
+  ) : (
+    <div>Loading ....</div>
   );
 };
 

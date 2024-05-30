@@ -1,3 +1,4 @@
+
 import { configureStore } from '@reduxjs/toolkit';
 import seatsReducer from '../Reducer.js/Reducer';
 

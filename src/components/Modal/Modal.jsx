@@ -9,7 +9,6 @@ const Modal = ({ isOpen, onClose, onSubmit, seatNumber, date }) => {
     onSubmit({ name, phone });
     setName("");
     setPhone("");
-    
   };
 
   if (!isOpen) return null;
@@ -22,7 +21,9 @@ const Modal = ({ isOpen, onClose, onSubmit, seatNumber, date }) => {
             Book Seat {seatNumber} on {date}
           </h2>
           <span className="" onClick={onClose}>
-            <small className="text-red-500"><strong>close</strong></small>
+            <small className="text-red-500">
+              <strong>close</strong>
+            </small>
           </span>
         </div>
 
@@ -45,7 +46,7 @@ const Modal = ({ isOpen, onClose, onSubmit, seatNumber, date }) => {
           />
           <button
             type="submit"
-            className="bg-cyan-700 py-1 px-4 rounded-sm text-white"
+            className="bg-green-700 py-1 px-4 rounded-sm text-white"
           >
             Book
           </button>
