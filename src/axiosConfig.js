@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: "https://seminar-hall-booking-react-backend.vercel.app",
   withCredentials: true,
 });
 
