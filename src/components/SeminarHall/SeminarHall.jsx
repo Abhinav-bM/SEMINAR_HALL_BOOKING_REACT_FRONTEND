@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { bookSeat, saveState } from "../../redux/Actions/Actions";
+import { bookSeat, saveState } from "../../redux/Reducer.js/Reducer";
 import Modal from "../Modal/Modal";
 import Seat from "../Seat/Seat";
 import { format } from "date-fns";

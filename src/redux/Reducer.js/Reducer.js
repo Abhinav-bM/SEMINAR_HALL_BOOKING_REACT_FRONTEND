@@ -39,6 +39,6 @@ const seatsSlice = createSlice({
   },
 });
 
-export const { bookSeat, setSeats, saveState } = seatsSlice.actions;
+export const { bookSeat, saveState } = seatsSlice.actions;
 
 export default seatsSlice.reducer;
